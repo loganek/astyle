@@ -330,6 +330,7 @@ public:
 	virtual string beautify(const string& originalLine);
 	void setCaseIndent(bool state);
 	void setClassIndent(bool state);
+	void setClassInitializerIndent(int indentCount = 1);
 	void setContinuationIndentation(int indent = 1);
 	void setCStyle();
 	void setDefaultTabLength();

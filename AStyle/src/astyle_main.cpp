@@ -1723,6 +1723,9 @@ void ASConsole::printHelp() const
 	cout << "    --indent-namespaces  OR  -N\n";
 	cout << "    Indent the contents of namespace blocks.\n";
 	cout << endl;
+	cout << "    --indent-class-initializers or  -ci\n";
+	cout << "    Indent class initializer lists.\n";
+	cout << endl;
 	cout << "    --indent-continuation=#  OR  -xt#\n";
 	cout << "    Indent continuation lines an additional # indents.\n";
 	cout << "    The valid values are 0 thru 4 indents.\n";
@@ -2868,6 +2871,17 @@ void ASOptions::parseOption(const string& arg, const string& errorInfo)
 			isOptionError(arg, errorInfo);
 		else
 			formatter.setContinuationIndentation(contIndent);
+	}
+	else if ( isParamOption(arg, "ci", "indent-class-initializers=") )
+	{
+		int classInitializer = 1;
+		string classInitializerIndent = getParam(arg, "ci", "indent-class-initializers=");
+		if (classInitializerIndent.length() > 0)
+			classInitializer = atoi(classInitializerIndent.c_str());
+		if (classInitializer < 0)
+			isOptionError(arg, errorInfo);
+		else
+			formatter.setClassInitializerIndent(classInitializer);
 	}
 	else if ( isParamOption(arg, "m", "min-conditional-indent=") )
 	{

@@ -527,6 +527,16 @@ void ASBeautifier::setContinuationIndentation(int indent)
 }
 
 /**
+* set the number of indents for a class initializer list.
+*
+* @param   indentCount     number of indents per line.
+*/
+void ASBeautifier::setClassInitializerIndent(int indentCount)
+{
+	classInitializerIndents = indentCount;
+}
+
+/**
  * set the maximum indentation between two lines in a multi-line statement.
  *
  * @param   max     maximum indentation length.

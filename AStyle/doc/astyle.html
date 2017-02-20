@@ -107,6 +107,7 @@
         <a class="contents" href="#_indent-preproc-define">indent&#8209;preproc&#8209;define</a>&nbsp;&nbsp;&nbsp;
         <a class="contents" href="#_indent-preproc-cond">indent&#8209;preproc&#8209;cond</a>&nbsp;&nbsp;&nbsp;
         <a class="contents" href="#_indent-col1-comments">indent&#8209;col1&#8209;comments</a>&nbsp;&nbsp;&nbsp;
+        <a class="contents" href="#_indent-class-initializers">indent&#8209;class&#8209;initializers</a>&nbsp;&nbsp;&nbsp;
         <a class="contents" href="#_min-conditional-indent">min&#8209;conditional&#8209;indent</a>&nbsp;&nbsp;&nbsp;
         <a class="contents" href="#_max-instatement-indent">max&#8209;instatement&#8209;indent</a>&nbsp;&nbsp;&nbsp;
     </p>
@@ -1303,6 +1304,28 @@ error:
         #else
         text = buff;
         #endif
+</pre>
+    </div>
+    <p>
+        &nbsp;</p>
+    <p id="_indent-class-initializers">
+        <code class="title">--indent-class-initializers=<span class="option">#</span> / -ci<span class="option">#</span></code><br />
+        Sets the indent of the  initializer lists. The default value for the parameter is 1.</p>
+    <div class="code">
+        <pre>Foo::Foo() :
+....field1(23),
+..field2(3)
+<span class="brace">{</span>
+<span class="brace">}</span>
+</pre>
+        <p class="code">
+            becomes (when setting 
+            <strong><code>--indent-class-initializers=<span class="option">2</span></code></strong>):</p>
+        <pre>Foo::Foo() :
+........field1(23),
+........field2(3)
+<span class="brace">{</span>
+<span class="brace">}</span>
 </pre>
     </div>
     <p>
